@@ -44,7 +44,7 @@ const loginCtrl = async (req, res, next) => {
     const { _id, password, isAdmin, ...others } = user._doc;
 
     const token = jwt.sign({ id: _id, isAdmin: isAdmin }, process.env.SK, {
-      expiresIn: "1h",
+      expiresIn: "1d",
     });
 
     res.status(200).json({ _id, token, isAdmin, ...others });
